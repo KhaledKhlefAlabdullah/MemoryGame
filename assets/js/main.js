@@ -1,17 +1,19 @@
 let failureTraying, successTraying, timer;
 let list = [];
 
-const successSound = new Audio("success.mp3");
-const failureSound = new Audio("failure.mp3");
+const successSound = new Audio("assets/audios/success.mp3");
+const failureSound = new Audio("assets/audios/failure.mp3");
 
 const log = console.log;
 
 function startGame() {
-  log("start");
+
   const playerName = document.getElementById("player-name").value;
   const gameLevel = parseInt(document.getElementById("game-level").value);
   timer = parseInt(document.getElementById("duration").value);
+  
   log(getTimerForLevel(gameLevel) + "  8989");
+
   // Hide welcome screen and show game container
   document.getElementById("welcome-screen").style.display = "none";
   document.getElementById("game-container").style.display = "block";
