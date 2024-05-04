@@ -1,11 +1,15 @@
-*{
-    font-family: 'Cairo', sans-serif;
+* {
+	font-family: 'Cairo', sans-serif;
 	direction: rtl;
 }
 
 body {
 	background-color: #f0f0f0;
-
+	height: 100%;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .container {
@@ -41,7 +45,7 @@ body {
 	border-radius: 50%;
 	margin: 10px;
 	display: flex;
-align-items: center;
+	align-items: center;
 	justify-content: center;
 	cursor: pointer;
 	position: relative;
@@ -102,11 +106,13 @@ align-items: center;
 }
 
 .circle:hover {
-    transform: scale(1.1); /* تكبير الدائرة عند التحويم */
+	transform: scale(1.1);
+	/* تكبير الدائرة عند التحويم */
 }
 
 .circle:active {
-    transform: scale(0.9); /* تصغير الدائرة عند النقر */
+	transform: scale(0.9);
+	/* تصغير الدائرة عند النقر */
 }
 
 .timer {
@@ -137,4 +143,22 @@ button:disabled {
 	background-color: #ccc;
 	color: #333;
 	cursor: not-allowed;
+}
+
+#countdown {
+	position: fixed;
+	top: 20px;
+	/* Adjust as needed */
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#countdown span{
+	color: #4CAF50;
+}
+
+.red {
+	color: red;
 }

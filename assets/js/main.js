@@ -1,91 +1,77 @@
-let failureTraying, successTraying, timer;
-let list = [];
+const mockery = new Audio("assets/audios/mockery.mp3");
+const backGround = new Audio("assets/audios/back-ground-sound.mp3");
 
 const successSound = new Audio("assets/audios/success.mp3");
 const failureSound = new Audio("assets/audios/failure.mp3");
 
 const log = console.log;
 
-function startGame() {
+let timer = 0;
+let list = [];
+let allAnswers = 0;
+let falseAnswers = 0;
+let lastRoundFalseAnswers = 0;
+let trueAnswers = 0;
 
-  const playerName = document.getElementById("player-name").value;
-  const gameLevel = parseInt(document.getElementById("game-level").value);
+let playerName;
+let gameLevel;
+let numCircles = 2;
+let countdownElement;
+
+function start() {
+  document.getElementById("welcome-screen").style.display = "block";
+  document.getElementById("start-screen").style.display = "none";
+
+  backGround.loop = true;
+  backGround.play();
+}
+
+function startGame() {
+  playerName = document.getElementById("player-name").value;
+  gameLevel = parseInt(document.getElementById("game-level").value);
   timer = parseInt(document.getElementById("duration").value);
-  
-  log(getTimerForLevel(gameLevel) + "  8989");
+
+  if (!playerName || !gameLevel || !timer) return;
 
   // Hide welcome screen and show game container
   document.getElementById("welcome-screen").style.display = "none";
   document.getElementById("game-container").style.display = "block";
 
-  playLevel(playerName, gameLevel, 2);
+  playLevel(gameLevel, numCircles);
+
+  // Create a countdown element and append it to the body
+  countdownElement = document.createElement("div");
+  countdownElement.id = "countdown";
+  document.body.appendChild(countdownElement);
+  // Start the countdown
+  startCountdown(timer, countdownElement);
+
+  // Start the game level after the countdown
+  setTimeout(() => {
+    showResults(playerName, trueAnswers, falseAnswers);
+  }, timer * 1000);
 }
 
-function playLevel(playerName, level, numCircles) {
-  const gameContainer = document.getElementById("game-container");
-  gameContainer.innerHTML = ""; // Clear game container
+// Function to start the countdown
+function startCountdown(duration, element) {
+  let timeLeft = duration;
+  element.innerText = `الوقت المتبقي: ${timeLeft} ثوان`;
 
-  // Generate circles with random numbers
-  for (let i = 0; i < numCircles; i++) {
-    const randomNumber = Math.floor(Math.random() * 10) + 1; // Random number between 1 and 10
-    const circle = document.createElement("div");
-    circle.classList.add("circle", "m-3");
-    circle.style.backgroundColor = generateRandomColor(); // Initial color
-    circle.style.transition = "background-color 0.5s"; // Smooth transition
-    circle.style.width = `${22.5 - 2.5 * level}px`;
-    circle.style.height = `${22.5 - 2.5 * level}px`;
 
-    circle.onclick = function () {
-      compare(randomNumber);
-    }; // Pass the index to the compare function when clicked
-    // Display random number in circle for a short duration
-    circle.textContent = randomNumber;
-    gameContainer.appendChild(circle);
+  const countdownInterval = setInterval(() => {
+    timeLeft--;
 
-    list.push(circle.textContent);
-    list = list.sort();
-
-    log(list[0]);
-
-    setTimeout(() => {
-      circle.style.backgroundColor = "red"; // Change color
-      circle.textContent = "";
-    }, getTimerForLevel(level));
-  }
+    if (timeLeft <= 0) {
+      clearInterval(countdownInterval);
+      element.innerText = "أنتهى الوقت ياوااااارد";
+    } else {
+      if (timeLeft <= 10) {
+        element.classList.add('red');
+      } else {
+        element.classList.remove('red');
+      }
+      element.innerText = `الوقت المتبقي: ${timeLeft} ثوان`;
+    }
+  }, 1000);
 }
 
-function showResults(playerName) {
-  const gameContainer = document.getElementById("game-container");
-  gameContainer.innerHTML = ""; // Clear game container
-}
-
-function compare(index) {
-  if (list[0] == index) {
-    successSound.play();
-  } else {
-    failureSound.play();
-  }
-}
-
-function generateRandomColor() {
-  // Generate random RGB values
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
-
-  // Construct the CSS color string
-  return `rgb(${r},${g},${b})`;
-}
-
-function getTimerForLevel(level) {
-  let levelTime = 1;
-  if (level == 1) {
-    levelTime = 2;
-  } else if (level == 2) {
-    levelTime == 1.75;
-  } else {
-    levelTime == 1;
-  }
-
-  return parseInt(levelTime * 1000);
-}
