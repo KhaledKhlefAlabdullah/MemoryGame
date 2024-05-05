@@ -4,20 +4,24 @@
 }
 
 body {
-	background-color: #f0f0f0;
-	height: 100%;
+	background: radial-gradient(circle, #0077ea, #1f4f96, #1b2949, #000);
+	height: 100vh;
 	margin: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	min-height: 450px;
 }
 
 .container {
 	width: 800px;
 	margin: 0 auto;
-	background-color: #fff;
 	padding: 20px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 31px;
+	border-radius: 31px;
+	background: #1853c9;
+	box-shadow: 31px 31px 35px #0a2252,
+		-31px -31px 35px #2684ff;
 }
 
 .stage-counter {
@@ -155,7 +159,7 @@ button:disabled {
 	font-weight: bold;
 }
 
-#countdown span{
+#countdown span {
 	color: #4CAF50;
 }
 

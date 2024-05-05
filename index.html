@@ -10,14 +10,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/welcom.css">
 </head>
 
 <body>
     <div class="container mt-5 justify-self-center align-self-center rounded">
 
         <div id="start-screen" class="welcome-screen text-center mt-5" style="display: block;">
+            <div >
+                <div class="stage">
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                    <div class="layer"></div>
+                </div>
+            </div>
 
             <form id="game-form" class="mt-3">
                 <div>
@@ -31,18 +58,19 @@
         <div id="welcome-screen" class="welcome-screen text-center mt-5 rounded" style="display: none;">
             <div>
                 <h1>أختبر ذاكرتك</h1><i class="fa-solid fa-brain" style="color: #74C0FC;"></i>
-
             </div>
 
 
             <form id="game-form" class="mt-3">
                 <div class="form-group">
                     <label for="player-name">أدخل إسمك</label>
-                    <i class="fa-solid fa-person" style="color: #74C0FC;"></i><input type="text" class="form-control" id="player-name" required>
+                    <i class="fa-solid fa-person" style="color: #74C0FC;"></i><input type="text" class="form-control"
+                        id="player-name" required>
                 </div>
                 <div class="form-group">
                     <label for="game-level">أختر المستوى الذي تريد اللعب فيه</label>
-                    <i class="fa-solid fa-money-bill-wheat" style="color: #74C0FC;"></i><select class="form-control" id="game-level">
+                    <i class="fa-solid fa-money-bill-wheat" style="color: #74C0FC;"></i><select class="form-control"
+                        id="game-level">
                         <option value="1">المستوى الأول</option>
                         <option value="2">المستوى الثاني</option>
                         <option value="3">المستوى الثالث</option>
@@ -50,14 +78,17 @@
                 </div>
                 <div class="form-group">
                     <label for="duration">أدخل مدة اللعب بالثواني</label>
-                    <i class="fa-solid fa-clock" style="color: #74C0FC;"></i><input id="duration" type="number" class="form-control" id="duration" required>
+                    <i class="fa-solid fa-clock" style="color: #74C0FC;"></i><input id="duration" type="number"
+                        class="form-control" id="duration" required>
                 </div>
-                <button type="button" class="btn btn-primary" onclick="startGame()"> <i class="fa-solid fa-circle-play" style="color: #74C0FC;"></i></button>
+                <button type="button" class="btn btn-primary" onclick="startGame()"> <i class="fa-solid fa-circle-play"
+                        style="color: #74C0FC;"></i></button>
             </form>
         </div>
 
 
-        <div id="game-container" class="game-container mt-5 text-center rounded" style="display: none; position: relative; width: 300 px; height: 50vh;">
+        <div id="game-container" class="game-container mt-5 text-center rounded"
+            style="display: none; position: relative; width: 300 px; height: 50vh;">
 
         </div>
 
