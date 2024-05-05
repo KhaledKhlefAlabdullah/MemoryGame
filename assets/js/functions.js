@@ -5,8 +5,7 @@ function compare(content, element) {
     console.error("Element is undefined or null");
     return;
   }
-  // Reset the lastRoundFalseAnswers counter
-  lastRoundFalseAnswers = 0;
+
   // If the first item in the 'list' array matches the provided content:
   if (list[0] === content) {
     // Remove the first item from the 'list' array
@@ -29,7 +28,6 @@ function compare(content, element) {
     falseAnswers++;
     // Increment the lastRoundFalseAnswers counter
     lastRoundFalseAnswers++;
-
     // Play a failure sound
     failureSound.play();
     // After 1000 milliseconds (1 second), restore the original background color of the 'element'
@@ -46,6 +44,7 @@ function compare(content, element) {
     } else {
       numCircles++;
     }
+    
     // Call the 'playLevel' function with the 'gameLevel' and 'numCircles' parameters
     playLevel(gameLevel, numCircles);
   }

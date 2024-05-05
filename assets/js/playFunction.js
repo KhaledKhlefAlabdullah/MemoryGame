@@ -1,4 +1,6 @@
 function playLevel(level, numCircles) {
+
+  lastRoundFalseAnswers = 0;
   // Get reference to the game container element
   const gameContainer = document.getElementById("game-container");
   const gameContainerWidth = 300; // Width of the game container
@@ -10,7 +12,7 @@ function playLevel(level, numCircles) {
   // Generate circles with random numbers
   for (let i = 0; i < numCircles; i++) {
     // Generate a random number between 1 and 10
-    const randomNumber = Math.floor(Math.random() * 10) + 1;
+    const randomNumber = Math.floor(Math.random() * 10);
 
     // Create a new div element to represent the circle
     const circle = document.createElement("div");
