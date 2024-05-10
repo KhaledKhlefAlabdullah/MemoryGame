@@ -44,7 +44,7 @@ function compare(content, element) {
     } else {
       numCircles++;
     }
-    
+
     // Call the 'playLevel' function with the 'gameLevel' and 'numCircles' parameters
     playLevel(gameLevel, numCircles);
   }
@@ -73,4 +73,13 @@ function getTimerForLevel(level) {
   }
 
   return parseInt(levelTime * 1000); // Convert level time to milliseconds and return
+}
+
+function backToStart() {
+  const result = document.getElementById("result");
+  result.style.display = "none";
+  document.getElementById("welcome-screen").style.display = "block";
+  countdownElement.textContent = "";
+  backGround.play();
+  mockery.pause();
 }
